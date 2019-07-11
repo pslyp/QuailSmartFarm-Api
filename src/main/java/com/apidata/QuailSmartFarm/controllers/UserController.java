@@ -1,10 +1,12 @@
 package com.apidata.QuailSmartFarm.controllers;
 
+import com.apidata.QuailSmartFarm.entities.User;
 import com.apidata.QuailSmartFarm.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -14,8 +16,8 @@ public class UserController {
     private UserService userService;
 
     @GetMapping(value = "/{id}")
-    public String show(@PathVariable String id) throws Exception {
-        return "Data user ID: " + id;
+    public Optional<User> show(@PathVariable String id) throws Exception {
+        return userService.findById(Integer.parseInt(id));
     }
 
     @PostMapping(value = "")
