@@ -25,4 +25,11 @@ public class UserController {
         return "Create data success";
     }
 
+    @DeleteMapping(value = "/{id}")
+    public String destroy(@PathVariable String id) throws Exception {
+        userService.deleteById(Integer.parseInt(id));
+
+        return "Delete data ID: " + id + "success";
+    }
+
 }

@@ -14,6 +14,8 @@ public interface UserService {
 
     List<User> findAllByQuery();
 
-    User save(Map<String,String> inputs)throws Exception;
+    User save(Map<String,String> inputs) throws Exception;
+
+    void deleteById(Integer id) throws Exception;
 
 }
