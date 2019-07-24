@@ -20,6 +20,11 @@ public class UserController {
         return userService.findById(Integer.parseInt(id));
     }
 
+    @GetMapping(value = "/{id}/2")
+    public Optional<User> show2(@PathVariable String id) throws Exception {
+        return userService.findByIdQuery(Integer.parseInt(id));
+    }
+
     @PostMapping(value = "")
     public String store(@RequestParam Map<String,String> inputs) throws Exception {
         userService.save(inputs);

@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Optional<User> findByIdQuery(Integer id) {
+        return userReposity.findByIdQuery(id);
+    }
+
+    @Override
     public User save(Map<String,String> inputs) throws Exception {
         try {
             User user = new User();
