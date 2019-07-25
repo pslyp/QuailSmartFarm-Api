@@ -12,7 +12,7 @@ public interface UserReposity extends JpaRepository<User,Integer> {
     @Query(value = "SELECT * FROM users", nativeQuery = true)
     public List<User> findAllByQuery();
 
-    @Query(value = "SELECT * FROM users a WHERE a.id = ?1", nativeQuery = true)
+    @Query(value = "SELECT u FROM User u WHERE u.id = ?1")
     public Optional<User> findByIdQuery(Integer id);
 
 }
